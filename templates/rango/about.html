@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+<head>
+    <title>Rango</title>
+</head>
+
+<body>
+    <h1>Rango-About says...</h1>
+    <div>
+        This tutorial has been put together by {{my_name}}. 
+        <br />
+        <strong>{{ about_string }}</strong>
+        <br />
+    </div>
+    <div>
+        <a href="/rango/">Index</a> <br/>
+        <img src="{{ MEDIA_URL }}cat.jpg" /> 
+        <br />
+    </div>
+</body>
+
+</html>
