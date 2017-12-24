@@ -28,7 +28,9 @@ SECRET_KEY = '-)4x^6dvbm$+o@5w08trv$iplr3o=d$g_+rb^f@lxs9-0w*$xq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'kydkang.pythonanywhere.com'
+]
 
 
 # Application definition
@@ -42,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
-    'bootstrap_toolkit', 
+#   'bootstrap_toolkit', 
 ]
 REGISTRATION_OPEN = True
 ACCOUNT_ACTIVATION_DAYS = 7
