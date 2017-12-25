@@ -29,7 +29,9 @@ SECRET_KEY = '-)4x^6dvbm$+o@5w08trv$iplr3o=d$g_+rb^f@lxs9-0w*$xq'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'kydkang.pythonanywhere.com'
+          '127.0.0.1',  
+      'kydkang.pythonanywhere.com', 
+
 ]
 
 
