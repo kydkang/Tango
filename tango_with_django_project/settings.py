@@ -44,13 +44,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
+    'crispy_forms'
 #   'bootstrap_toolkit', 
 ]
+
 REGISTRATION_OPEN = True
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = '/rango/'
 LOGIN_URL = '/accounts/login/' 
+# LOGIN_URL = '/rango/login/' 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -141,6 +144,6 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
-# LOGIN_URL = '/rango/login/' 
+
 
 
