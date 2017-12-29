@@ -31,4 +31,7 @@ urlpatterns = [
     # path('logout/', views.user_logout, name='logout'),  
     url(r'^suggest/$', views.suggest_category, name='suggest_category'),
     url(r'^like/$', views.like_category, name='like_category'),
+    url(r'^goto/(?P<page_id>\d+)/$', views.track_url, name='goto'),
+    url(r'^goto/$', views.track_url, name='goto'),
+
 ]

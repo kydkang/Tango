@@ -33,7 +33,7 @@ def show_category(request, category_name_slug):
     context_dict = {}
     try:
         category = Category.objects.get(slug=category_name_slug)
-        pages = Page.objects.filter(category=category)
+        pages = Page.objects.filter(category=category).order_by('-views') 
         context_dict['pages'] = pages
         context_dict['category'] = category
     except Category.DoesNotExist:
@@ -74,6 +74,7 @@ def add_page(request, category_name_slug):
     context_dict = {'form': form, 'category': category}
     return render(request, 'rango/add_page.html', context_dict)
 
+# replaced by django-registration-redux
 # def register(request):
 #     registered = False
 #     if request.method == 'POST':
@@ -122,6 +123,7 @@ def add_page(request, category_name_slug):
 def restricted(request):
     return HttpResponse("Since you are logged in, you can see this text!")
 
+# replaced by django-registration-redux
 # @login_required
 # def user_logout(request):
 #     logout(request)
@@ -178,3 +180,27 @@ def like_category(request):
                 cat.likes = likes
                 cat.save()
     return HttpResponse(likes)
+
+def track_url(request): 
+    page_id = None
+    if request.method == 'GET':
+        if 'page_id' in request.GET:
+            page_id = request.GET['page_id']
+            if page_id:
+                page = Page.objects.get(id=int(page_id))
+                if page:
+                    views = page.views +1
+                    page.views = views
+                    page.save()
+                    return HttpResponseRedirect(page.url)
+    return HttpResponseRedirect(reverse('index'))
+
+# def track_url(request, page_id): 
+#     if page_id:
+#         page = Page.objects.get(id=int(page_id))
+#         if page:
+#             views = page.views +1
+#             page.views = views
+#             page.save()
+#             return HttpResponseRedirect(page.url)
+#     return HttpResponseRedirect(reverse('index'))
